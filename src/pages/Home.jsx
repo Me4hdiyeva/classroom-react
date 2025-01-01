@@ -6,9 +6,7 @@ function Home() {
 
   return (
     <>
-      <Helmet>
-        <title>Brainy Bunch</title>
-      </Helmet>
+     
       <div style={{backgroundColor:"#E5E7EB"}}>
      <Login />  
       </div>
