@@ -196,8 +196,8 @@ function Register() {
                 className="border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9553A0]"
                 checked={formik.values.role === 'student'}
                 onChange={(event) => {
-                  const isChecked = event.target.checked; // Checkbox-un seçilib-seçilmədiyini yoxlayır
-                  formik.setFieldValue('role', isChecked ? 'student' : 'teacher'); // Dəyəri dəyişir
+                  const isChecked = event.target.checked; 
+                  formik.setFieldValue('role', isChecked ? 'student' : 'teacher'); 
                 }}
                 value={formik.values.role}
                 onBlur={formik.handleBlur}

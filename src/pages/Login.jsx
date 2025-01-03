@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import logo from "../assets/img/Mathematicsamico.png";
 import { Helmet } from "react-helmet-async";
 import { useFormik } from "formik";
@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import axios from "axios";
 
 function Login() {
+  const navigate = useNavigate(); 
   const formYup = Yup.object().shape({
     username: Yup.string()
       .min(2, "Too Short!")
@@ -30,36 +31,69 @@ function Login() {
       password: "",
     },
     validationSchema: formYup,
-    onSubmit: async (values) => {
+    onSubmit: (values) => {
       console.log(values);
-      try {
-        const response = await axios.post(
-          "https://full-translucent-cut.glitch.me/users",
-          values
-        );
-        
-        // Serverin cavabını konsola yazdıraq
-        console.log("Serverin cavabı:", response.data);  
+      
+      axios
+      .get("https://full-translucent-cut.glitch.me/users")
+      .then((response) => {
+        const users = response.data;
     
-        // Server cavabında `success` sahəsi yoxdursa, bəlkə başqa sahə var
-        if (response.data && response.data.status === "success") {
-          console.log("Giriş müvəffəqiyyətli oldu");
+        // Serverdən gələn məlumatı yoxlayaq
+        // console.log("Serverdən gələn istifadəçilər:", users);
+    
+        // Formik ilə daxil edilmiş məlumatları əldə edirik
+        const { email, password } = values;
+        console.log("Axtarılan email:", email);
+        console.log("Axtarılan parol:", password);
+    
+        // Daxil edilən email və parolu düzgün formatda yoxlayaq
+        if (email && password) {
+          console.log("Email tipi:", typeof email);
+          console.log("Parol tipi:", typeof password);
+    
+          // Email və parolun düzgün olub olmadığını yoxlayaq
+          if (typeof email === 'string' && email.trim() !== '' && typeof password === 'string' && password.trim() !== '') {
+            const trimmedEmail = email.trim();
+            const trimmedPassword = password.trim();
+    
+            console.log("Trimlənmiş email:", trimmedEmail);
+            console.log("Trimlənmiş parol:", trimmedPassword);
+    
+            // İstifadəçini tapmaq
+            const user = users.find(
+              (u) => u.email.toLowerCase() === trimmedEmail.toLowerCase() && u.password === trimmedPassword
+            );
+            console.log(user);
+
+            
+    
+            // Tapılan istifadəçini yoxlayın
+            if (user) {
+              console.log("Tapılan istifadəçi emaili:", user.email);
+              console.log("Tapılan istifadəçi parolu:", user.password);
+              console.log("girdi");
+              if (user.role === "student") {
+                navigate("/student")
+              }else{
+                navigate("/")
+
+              }
+              
+            } else {
+              console.log("İstifadəçi tapılmadı.");
+            }
+          } else {
+            console.log("Email və ya parol düzgün daxil edilməyib.");
+          }
         } else {
-          console.log("Giriş uğursuz oldu.");
+          console.log("Email və ya parol daxil edilməyib.");
         }
-      } catch (error) {
-        // Hata ilə bağlı daha detallı məlumat
-        if (error.response) {
-          console.error("Server Error:", error.response.data);
-        } else if (error.request) {
-          console.error("No response received:", error.request);
-        } else {
-          console.error("Error:", error.message);
-        }
-      }
+      })
+      .catch((error) => {
+        console.error("Xəta baş verdi:", error.message);
+      });
     }
-    
-    
   });
 
   return (

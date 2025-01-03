@@ -5,22 +5,28 @@ import { HelmetProvider } from "react-helmet-async";
 import Register from "./pages/Ragister.jsx";
 import StudentLayout from "./layout/StudentLayout.jsx";
 import Student from "./pages/Student.jsx";
+import Mainpages from "./pages/Mainpages.jsx";
 
 
 function App() {
   return (
     <HelmetProvider>
-      <Routes>
+      <Routes >
         {/* <Route path="/teacher" element={<TeacherLayout/>}>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
         </Route> */}
 
         <Route path="/" element={<StudentLayout/>}>
-          <Route index element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route  path="/student" element={<Student />} />
-          
+          <Route index element={<Home/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/student" element={<Student/>} >
+            <Route index element={<Mainpages/>} />
+          </Route>
+          {/* <Route  path="/student" element={<Student />} /> */}
+
+
+
         </Route>
       </Routes>
     </HelmetProvider>
