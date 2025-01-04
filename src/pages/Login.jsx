@@ -67,7 +67,7 @@ function Login() {
               console.log("girdi");
               // setIsAuthenticated(true); 
               Swal.fire({
-                title: "Drag me!",
+                title: "You have logged in!",
                 icon: "success",
                 draggable: true
               });
@@ -223,7 +223,7 @@ function Login() {
               </a>
               <Link
                 className="text-white hover:text-indigo-100 text-sm"
-                to="/register"
+                to="register"
               >
                 Create Account
               </Link>

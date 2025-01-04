@@ -11,40 +11,38 @@ import PrivateRoute from "./pages/PrivateRoute.jsx";
 import TeacherMain from "./pages/TeacherMain.jsx";
 import TeacherLayout from "./layout/TeacherLayout.jsx";
 import Calendar from "./pages/Calendar.jsx";
+import AllLayout from "./layout/AllLayout.jsx";
 
 
 function App() {
   // const [isAuthenticated, setIsAuthenticated] = useState(false); 
   return (
     <HelmetProvider>
-      <Routes >
-        <Route path="//" element={<TeacherLayout/>}>
-        <Route index element={<Home/>} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/teacher" element={<TeacherMain/>}>
-        <Route  index element={<TeacherMain/>}/>
-        
+      <Routes  >
+        <Route path="/all" element={<AllLayout />}  >
+          <Route index element={<Home />} />
+          <Route path="register" element={<Register />} />
+
+
+
 
         </Route>
+
+
+
+
+        <Route path="/teachers" element={<TeacherLayout />}>
+          <Route index element={<TeacherMain />} />
         </Route>
 
-        <Route path="/" element={<StudentLayout/>}>
-          <Route index element={<Home/>} />
-          <Route path="/register" element={<Register/>} />\
-          <Route element={<PrivateRoute/>}>
 
-
-          <Route path="/student" element={<Student/>} >
-            <Route index element={<Mainpages/>} />
-            <Route path="/student/details/:id" element={<Details/>} />
-            <Route path="calendar" element={<Calendar/>}/>
-          </Route>
-          </Route>
+        <Route path="/students" element={<StudentLayout />}>
+          <Route index element={<Mainpages />} />
+          <Route path="students/details/:id" element={<Details />} />
+          <Route path="students/calendar" element={<Calendar />} />
           {/* <Route  path="/student" element={<Student />} /> */}
-
-
-
         </Route>
+
       </Routes>
     </HelmetProvider>
   )

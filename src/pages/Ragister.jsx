@@ -5,13 +5,16 @@ import * as Yup from 'yup';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 // import { UploadStream } from "cloudinary";
 import axios from 'axios';
+import Swal from "sweetalert2";
+import { Navigate, useNavigate } from "react-router-dom";
+
 
 
 
 
 
 function Register() {
-  
+  const navigate = useNavigate()
 
 // const handleUpload = async(e)=> {
 //  const data = new FormData()
@@ -69,6 +72,17 @@ function Register() {
       try {
         const response = await axios.post('https://full-translucent-cut.glitch.me/users', values);     
         console.log('Success:', response.data);
+        console.log("kecdi");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "You have registered!",
+          showConfirmButton: false,
+          timer: 1500
+        });
+       navigate("/all")
+
+        
       } catch (error) {
         console.error('Error:', error.response ? error.response.data : error.message);
       }

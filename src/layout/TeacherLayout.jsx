@@ -1,11 +1,14 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import NavbarTeacher from '../components/teacher/NavberTeacher'
+import TeacherMain from '../pages/TeacherMain'
+import Navbar from '../components/student/Navbar'
 
 const TeacherLayout = () => {
   return (
     <div>
-     <NavbarTeacher/>
+     {/* <NavbarTeacher/> */}
+     <Navbar/>
+     <TeacherMain/>
       <Outlet />
     </div>
   )

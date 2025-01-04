@@ -52,12 +52,12 @@ const Student = () => {
           </Link>
         </li>
         <li>
-          <Link to="/calendar">
+          <Link to="students/calendar">
             <i className="icon">📅</i> Календарь
           </Link>
         </li>
         <li>
-          <a href="#">
+          <a href="students/">
             <i className="icon">📘</i> Курсы, слушателем которых...
           </a>
         </li>
@@ -89,8 +89,7 @@ const Student = () => {
 
                 </div>
             </div>
-            <Mainpages/>
-        </>
+      </>
     );
 };
 

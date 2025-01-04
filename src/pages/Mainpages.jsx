@@ -32,6 +32,7 @@ const Mainpages = () => {
     }, []);
 
     return (
+        
         <div>
             {tasks.map((item, index) => (
                 <div key={item.id} style={{ padding: "20px", margin: "170px", paddingLeft: "150px" }}>
