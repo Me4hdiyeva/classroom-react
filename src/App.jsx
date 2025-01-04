@@ -39,7 +39,7 @@ function App() {
         <Route path="/students" element={<StudentLayout />}>
           <Route index element={<Mainpages />} />
           <Route path="students/details/:id" element={<Details />} />
-          <Route path="students/calendar" element={<Calendar />} />
+          <Route path="calendar" element={<Calendar />} />
           {/* <Route  path="/student" element={<Student />} /> */}
         </Route>
 

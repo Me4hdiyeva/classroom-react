@@ -34,7 +34,7 @@ function Navbar() {
       <Helmet>
         <title>Brainy Bunch</title>
       </Helmet>
-      <div className="bg-gray-100">
+      <div  className="bg-gray-100 ">
         <div  className=" flex overflow-hidden bg-gray-200">
           
           {/* <div

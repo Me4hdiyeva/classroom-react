@@ -47,17 +47,17 @@ const Student = () => {
                    <aside style={{position:"absolute"}} className="sidebar">
       <ul>
         <li>
-          <Link to="/student" className="active">
+          <Link to="/students" className="active">
             <i className="icon">🏠</i> Главная страница
           </Link>
         </li>
         <li>
-          <Link to="students/calendar">
+          <Link to="calendar">
             <i className="icon">📅</i> Календарь
           </Link>
         </li>
         <li>
-          <a href="students/">
+          <a href="">
             <i className="icon">📘</i> Курсы, слушателем которых...
           </a>
         </li>
