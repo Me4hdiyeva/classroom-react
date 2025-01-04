@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function Login() {
   const navigate = useNavigate(); 
@@ -38,21 +39,14 @@ function Login() {
       .get("https://full-translucent-cut.glitch.me/users")
       .then((response) => {
         const users = response.data;
-    
-        // Serverdən gələn məlumatı yoxlayaq
-        // console.log("Serverdən gələn istifadəçilər:", users);
-    
-        // Formik ilə daxil edilmiş məlumatları əldə edirik
         const { email, password } = values;
         console.log("Axtarılan email:", email);
         console.log("Axtarılan parol:", password);
-    
-        // Daxil edilən email və parolu düzgün formatda yoxlayaq
+
         if (email && password) {
           console.log("Email tipi:", typeof email);
           console.log("Parol tipi:", typeof password);
     
-          // Email və parolun düzgün olub olmadığını yoxlayaq
           if (typeof email === 'string' && email.trim() !== '' && typeof password === 'string' && password.trim() !== '') {
             const trimmedEmail = email.trim();
             const trimmedPassword = password.trim();
@@ -60,7 +54,6 @@ function Login() {
             console.log("Trimlənmiş email:", trimmedEmail);
             console.log("Trimlənmiş parol:", trimmedPassword);
     
-            // İstifadəçini tapmaq
             const user = users.find(
               (u) => u.email.toLowerCase() === trimmedEmail.toLowerCase() && u.password === trimmedPassword
             );
@@ -68,20 +61,31 @@ function Login() {
 
             
     
-            // Tapılan istifadəçini yoxlayın
             if (user) {
               console.log("Tapılan istifadəçi emaili:", user.email);
               console.log("Tapılan istifadəçi parolu:", user.password);
               console.log("girdi");
+              // setIsAuthenticated(true); 
+              Swal.fire({
+                title: "Drag me!",
+                icon: "success",
+                draggable: true
+              });
+          
               if (user.role === "student") {
                 navigate("/student")
               }else{
-                navigate("/")
+                navigate("/teacher")
 
               }
               
             } else {
               console.log("İstifadəçi tapılmadı.");
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Incorrect login or password....",
+              });
             }
           } else {
             console.log("Email və ya parol düzgün daxil edilməyib.");
