@@ -80,7 +80,7 @@ function Register() {
           showConfirmButton: false,
           timer: 1500
         });
-       navigate("/all")
+       navigate("/")
 
         
       } catch (error) {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Mainpages from './Mainpages';
-
+ 
 const Student = () => {
     return (
         <>
@@ -56,15 +55,15 @@ const Student = () => {
             <i className="icon">📅</i> Календарь
           </Link>
         </li>
-        <li>
+        {/* <li>
           <a href="">
             <i className="icon">📘</i> Курсы, слушателем которых...
           </a>
-        </li>
+        </li> */}
         <li>
-          <a href="#">
+          <Link  to="tasks">
             <i className="icon">📋</i> Список заданий
-          </a>
+          </Link>
         </li>
         <li>
           <a href="#">

@@ -12,20 +12,16 @@ import TeacherMain from "./pages/TeacherMain.jsx";
 import TeacherLayout from "./layout/TeacherLayout.jsx";
 import Calendar from "./pages/Calendar.jsx";
 import AllLayout from "./layout/AllLayout.jsx";
+import Tasks from "./pages/Tasks.jsx";
 
 
 function App() {
-  // const [isAuthenticated, setIsAuthenticated] = useState(false); 
   return (
     <HelmetProvider>
-      <Routes  >
-        <Route path="/all" element={<AllLayout />}  >
+      <Routes>
+        <Route path="/" element={<AllLayout />}  >
           <Route index element={<Home />} />
           <Route path="register" element={<Register />} />
-
-
-
-
         </Route>
 
 
@@ -36,10 +32,13 @@ function App() {
         </Route>
 
 
-        <Route path="/students" element={<StudentLayout />}>
+        <Route path="/student" element={<StudentLayout />}>
           <Route index element={<Mainpages />} />
           <Route path="students/details/:id" element={<Details />} />
           <Route path="calendar" element={<Calendar />} />
+          <Route path="tasks" element={<Tasks />} />
+
+
           {/* <Route  path="/student" element={<Student />} /> */}
         </Route>
 
