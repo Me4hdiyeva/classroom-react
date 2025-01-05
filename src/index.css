@@ -58,7 +58,15 @@
     border-color 0.3s ease,
     box-shadow 0.3s ease;
 }
+
+
+
+
 .name,.topics :hover{
+  border-color: #bb00ff;
+
+}
+#title-task {
   border-color: #bb00ff;
 
 }
@@ -108,13 +116,14 @@
   transition: background-color 0.3s ease;
 }
 
-.topic-task, .description-task, .title-task{
+.topic-task, #description-task, #title-task{
   width: 90%;
   padding: 10px 15px;
   margin-top: 20px;
   margin-bottom: 20px;
   /* margin-left: 15px; */
   font-size: 14px;
+  /* border-color: #bb00ff; */
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;

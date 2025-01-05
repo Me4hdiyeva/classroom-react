@@ -42,7 +42,7 @@ const Courses = () => {
                 <div style={{ borderTopLeftRadius: "10px", borderTopRightRadius: "10px" }}  className="p-1  bg-[#F0E0FF]">
                     <div className="flex pl-5">
                         <div>
-                            <h1 className="text-xl text-[#4d167a] font-bold mb-8">{course.name}</h1>
+                            <h1 className="text-xl text-[#4d167a] font-bold mb-8 mt-4">{course.name}</h1>
                             <h4 className="font-bold text-[#4d167a] mb-9">CLASS ROOM</h4>
                         </div>
                     </div>
