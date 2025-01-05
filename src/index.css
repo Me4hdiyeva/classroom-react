@@ -62,14 +62,13 @@
 
 
 
-.name,.topics :hover{
-  border-color: #bb00ff;
+.name,.topics, .major:focus{
+  outline: none;
+  border-color: #4D167A;
+  box-shadow: 0 0 10px rgba(77, 22, 122, 0.2);
 
 }
-#title-task {
-  border-color: #bb00ff;
 
-}
 .major :hover{
   border-color: #bb00ff;
 

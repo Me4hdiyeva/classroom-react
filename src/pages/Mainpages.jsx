@@ -7,35 +7,28 @@ const Mainpages = () => {
     const [task, setTasks] = useState([]);
     const { username } = useParams();
     const [ fullnames, setFullnames] = useState([])
+   
+
+    
+
     // console.log(username);
     const name = username.at(0)
     console.log(name);
+    
     // setFullnames(name)
     
-
     useEffect(() => {
         setFullnames(name); 
         axios
-            .get("https://aquatic-supreme-saga.glitch.me/classes")
+            .get("https://aquatic-supreme-saga.glitch.me/tasks")
             .then((response) => {
                 const nameclass = response.data;
-                console.log(nameclass);
+                console.log("nameclass", nameclass);
                 setClasse(nameclass);
+           
                     
           
-                axios
-                    .get("https://aquatic-supreme-saga.glitch.me/tasks")
-                    .then((response) => {
-                        const task = response.data;
-                        console.log(task);
-                        
-                  
-                        // const names = users.map(element => element.fullName.at(0));
-                        // console.log("fullnames", names);
-                        // console.log("name",name);
-                        
-                        setTasks(task); 
-                    })
+           
             })
             .catch((error) => {
                 console.error("Xəta baş verdi:", error.message);
@@ -46,7 +39,7 @@ const Mainpages = () => {
     return (
         
         <div>
-            {classe.map((item, index) => (
+            {classe.map((item) => (
                 <div key={item.id} style={{ padding: "20px", margin: "100px", paddingLeft: "230px", paddingTop:"5px" }}>
                     <div className="bg-white shadow-lg rounded-lg max-w-sm">
                         <div style={{ backgroundColor: "#f0e0ff", borderTopLeftRadius: "10px", borderTopRightRadius: "10px" }} className='p-1'>
@@ -64,24 +57,24 @@ const Mainpages = () => {
                                     paddingTop:"7px",
                                     paddingLeft:"14px"
                                 }}>
-                                    {fullnames[index]}
+                                   {fullnames}
                                 </div>
                            
                         <div style={{ paddingLeft: "20px" }} className='flex'>
                             <div>
-                                <h1 style={{ paddingTop: "10px" }} className="text-xl text-[#4d167a] font-bold mb-8">{item.name}</h1>
+                                <h1 style={{ paddingTop: "10px" }} className="text-xl text-[#4d167a] font-bold mb-8">{item.classId}</h1>
                                 <h4 style={{ paddingTop: "10px" }} className='mb-9 font-bold text-[#4d167a]'>CLASS ROOM</h4>
                             </div>
                         </div>
                         </div>
 
                         {
-                            task.map((index)=>(
+                            
                                 <div style={{ paddingBottom: "100px" }} className='p-5 text-[#4d167a]'>
-                                <p>son tarix : {index.deadline}s</p>
-                                <Link to="tasks">{index.description}</Link>
+                                <p>son tarix : {item.deadline}</p>
+                                <Link to="tasks">{item.description}</Link>
                             </div>
-                            ))
+                           
 
                         }
 
