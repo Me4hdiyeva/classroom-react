@@ -32,7 +32,7 @@ const Student = () => {
           </Link>
         </li>
         <li>
-          <Link to="calendar">
+          <Link to="calendarstudents">
             <i className="icon">📅</i> Календарь
           </Link>
         </li>

@@ -56,7 +56,7 @@ const Calendar = () => {
   }, []);
 
   return (
-    <div style={{ padding: "20px", paddingLeft: "280px", paddingTop: "30px" }}>
+    <div style={{ padding: "20px", paddingLeft: "280px", paddingTop: "3px" }}>
       <FullCalendar
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
