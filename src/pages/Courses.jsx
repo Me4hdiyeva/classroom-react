@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 const Courses = () => {
     const [courses, setCourses] = useState([]);
@@ -22,6 +23,10 @@ const Courses = () => {
             .then((response) => {
                 console.log( response.data);
                 setCourses(courses.filter(course => course.id !== id));
+                Swal.fire({
+                    title: "Are you sure you want to delete this?",
+                    icon: "question"
+                  });
             })
             .catch((err) => {
                 console.log(err);

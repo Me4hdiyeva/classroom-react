@@ -58,6 +58,15 @@
     border-color 0.3s ease,
     box-shadow 0.3s ease;
 }
+.name,.topics :hover{
+  border-color: #bb00ff;
+
+}
+.major :hover{
+  border-color: #bb00ff;
+
+}
+
 
 .inp:focus {
   border-color: #bb00ff;
@@ -97,4 +106,161 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.topic-task, .description-task, .title-task{
+  width: 90%;
+  padding: 10px 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /* margin-left: 15px; */
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+input[type="datetime-local"] {
+  /* width: 100%; */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  transition: border 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+input[type="time"] {
+  width: 150px; 
+  padding: 8px; 
+  font-size: 16px; 
+  border: 2px solid #ccc; 
+  border-radius: 4px; 
+  background-color: #f9f9f9; 
+  transition: border-color 0.3s; 
+}
+.day-selection {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+}
+
+.day-selection h4 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+  
+}
+
+.day-selection label {
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 16px;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s;
+  
+}
+
+.day-selection label:hover {
+  color: #8a63b2; 
+}
+
+.day-selection input[type="checkbox"] {
+  margin-right: 5px;
+  transform: scale(1.2);
+   
+}
+
+.day-selection input[type="checkbox"]:checked {
+  background-color: #4CAF50; 
+  border-color: #4CAF50; 
+}
+.schedule-container {
+  margin-top: 30px;
+  font-family: Arial, sans-serif;
+  margin-left: 20px;
+
+}
+
+.schedule-container h4 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.schedule-container label {
+  display: block;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.schedule-container input[type="time"] {
+  display: block;
+  padding: 8px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.schedule-container input[type="time"]:focus {
+  border-color: #bb00ff; 
+  background-color: #f8f0f7; 
+}
+
+.schedule-container input[type="time"]:hover {
+  border-color: #bb00ff; 
+}
+.add-button {
+  
+ 
+  background-color: #9553A0; 
+  color: #fff;
+  margin-left: 10px;
+
+ height: 40px;
+ margin-top: 120px;
+  border: none;
+  border-radius: 4px;
+  width: 70px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background-color: #9553A0; 
+}
+
+.schedule-list {
+  margin-top: 33px;
+  padding-left: 80px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.schedule-list li {
+  font-size: 16px;
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.schedule-list :hover {
+  background-color: #f0f0f0; 
+  transform: scale(1.02); 
 }

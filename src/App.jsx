@@ -18,6 +18,8 @@ import Teacherhome from "./pages/Teacherhome.jsx";
 import Classes from "./pages/Classes.jsx";
 import Courses from "./pages/Courses.jsx";
 import Details from "./pages/Details.jsx";
+import AddTasks from "./pages/AddTasks.jsx";
+import Data from "./pages/Data.jsx";
 
 
 function App() {
@@ -39,6 +41,10 @@ function App() {
           <Route index element={<Teacherhome/>} />
           <Route path="classes" element={<  Classes />} />
           <Route path="courses" element={<  Courses />} />
+          <Route path="tasks" element={< AddTasks/>} />
+          <Route path="date" element={<Data/>} />
+
+
 
 
         </Route>

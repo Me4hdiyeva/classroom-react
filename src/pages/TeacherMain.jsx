@@ -21,9 +21,9 @@ const TeacherMain = () => {
               </Link>
             </li>
             <li>
-              {/* <Link to="schedule">
+              <Link to="date">
                 <i className="icon">🕒</i> Расписание
-              </Link> */}
+              </Link>
             </li>
             <li>
               <Link to="tasks">

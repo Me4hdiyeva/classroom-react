@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Tasks = () => {
 
     const [task, setTasks] = useState([]);
-    const[name , setName] = useState([]);
+    const [name, setName] = useState([]);
     useEffect(() => {
         axios
             .get("https://aquatic-supreme-saga.glitch.me/tasks")
@@ -18,18 +18,18 @@ const Tasks = () => {
                     .then((response) => {
                         const classes = response.data
                         console.log(classes);
-                   
+
                         // console.log(clasdata);
                         setName(classes)
-                        
 
 
-                    })  
+
+                    })
                     .catch((err) => {
                         console.log(err);
-        
+
                     })
-               
+
 
             })
             .catch((err) => {
@@ -43,11 +43,11 @@ const Tasks = () => {
 
 
 
-    },[])
+    }, [])
     return (
         <div>
             {
-                name.map((index)=>(
+                name.map((index) => (
                     <div style={{
                         backgroundColor: "#563a70",
                         borderRadius: "10px",
@@ -55,20 +55,20 @@ const Tasks = () => {
                         marginLeft: "280px",
                         marginRight: "10px",
                         color: "#ffffff",
-                        fontSize:"40px"
+                        fontSize: "40px"
                     }}>
-        {index.name}
+                        {index.name}
                     </div>
                 ))
             }
 
 
-         
+
 
             {
                 task.map((item) => (
 
-                    <div key={item.id} style={{  marginLeft: "280px", paddingTop: "60px" , marginRight:"180px"}}>
+                    <div key={item.id} style={{ marginLeft: "280px", paddingTop: "60px", marginRight: "180px" }}>
                         <div
                             style={{
                                 backgroundColor: "#e1c2ff",
@@ -80,11 +80,11 @@ const Tasks = () => {
                         >
                             <div>
 
-                                    <h1 className='font-bold p-5 ' style={{ fontSize:"18px" }}>
-                                        <Link to={`/student/Mehdiyeva/tasks/details/t1`}> {item.title}</Link>
-                                        
-                                       </h1>
-                          
+                                <h1 className='font-bold p-5 ' style={{ fontSize: "18px" }}>
+                                    <Link to={`/student/Mehdiyeva/tasks/details/t1`}> {item.title}</Link>
+
+                                </h1>
+
                                 <p className='p-5'>{item.deadline}</p>
                             </div>
                             <div style={{
