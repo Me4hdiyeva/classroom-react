@@ -65,6 +65,7 @@ function Login() {
               console.log("Tapılan istifadəçi emaili:", user.email);
               console.log("Tapılan istifadəçi parolu:", user.password);
               console.log("girdi");
+
               // setIsAuthenticated(true); 
               Swal.fire({
                 title: "You have logged in!",
@@ -73,9 +74,11 @@ function Login() {
               });
           
               if (user.role === "student") {
-                navigate("/student")
+                // navigate("/student")
+                navigate(`/student/${user.username}`); 
+
               }else{
-                navigate("/teacher")
+                navigate(`/teachers/${user.username}`)
 
               }
               

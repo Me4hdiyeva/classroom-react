@@ -1,28 +1,38 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const Mainpages = () => {
-    const [tasks, setTasks] = useState([]);
-    const [fullnames, setFullnames] = useState([]);
+    const [classe, setClasse] = useState([]);
+    const [task, setTasks] = useState([]);
+    const { username } = useParams();
+    const [ fullnames, setFullnames] = useState([])
+    // console.log(username);
+    const name = username.at(0)
+    console.log(name);
+    // setFullnames(name)
+    
 
     useEffect(() => {
+        setFullnames(name); 
         axios
-            .get("https://full-translucent-cut.glitch.me/tasks")
+            .get("https://full-translucent-cut.glitch.me/classes")
             .then((response) => {
-                const tasks = response.data;
-                console.log(tasks);
-                setTasks(tasks);
-                
+                const nameclass = response.data;
+                console.log(nameclass);
+                setClasse(nameclass);
+                    
           
                 axios
-                    .get("https://full-translucent-cut.glitch.me/users")
+                    .get("https://full-translucent-cut.glitch.me/tasks")
                     .then((response) => {
-                        const users = response.data;
+                        const task = response.data;
                   
-                        const names = users.map(element => element.fullName.at(0));
-                        console.log("fullnames", names);
-                        setFullnames(names); 
+                        // const names = users.map(element => element.fullName.at(0));
+                        // console.log("fullnames", names);
+                        // console.log("name",name);
+                        
+                        setTasks(task); 
                     })
             })
             .catch((error) => {
@@ -34,12 +44,12 @@ const Mainpages = () => {
     return (
         
         <div>
-            {tasks.map((item, index) => (
-                <div key={item.id} style={{ padding: "20px", margin: "170px", paddingLeft: "150px" }}>
+            {classe.map((item, index) => (
+                <div key={item.id} style={{ padding: "20px", margin: "100px", paddingLeft: "230px", paddingTop:"5px" }}>
                     <div className="bg-white shadow-lg rounded-lg max-w-sm">
                         <div style={{ backgroundColor: "#f0e0ff", borderTopLeftRadius: "10px", borderTopRightRadius: "10px" }} className='p-1'>
                            
-                            {fullnames[index] && (
+                           
                                 <div style={{
                                     // border: "2px solid",
                                     borderRadius: "50%",
@@ -50,24 +60,31 @@ const Mainpages = () => {
                                     backgroundColor:"#4d167a",
                                     color:"#FFFFFF",
                                     paddingTop:"7px",
-                                    paddingLeft:"17px"
+                                    paddingLeft:"14px"
                                 }}>
                                     {fullnames[index]}
                                 </div>
-                            )}
+                           
                         <div style={{ paddingLeft: "20px" }} className='flex'>
                             <div>
-                                <h1 style={{ paddingTop: "20px" }} className="text-xl text-[#4d167a] font-bold mb-8">{item.title}</h1>
+                                <h1 style={{ paddingTop: "10px" }} className="text-xl text-[#4d167a] font-bold mb-8">{item.name}</h1>
                                 <h4 style={{ paddingTop: "10px" }} className='mb-9 font-bold text-[#4d167a]'>CLASS ROOM</h4>
                             </div>
                         </div>
                         </div>
 
+                        {
+                            task.map((index)=>(
+                                <div style={{ paddingBottom: "100px" }} className='p-5 text-[#4d167a]'>
+                                <p>son tarix : {index.deadline}</p>
+                                <Link to="tasks">{index.description}</Link>
+                            </div>
+                            ))
 
-                        <div style={{ paddingBottom: "100px" }} className='p-5 text-[#4d167a]'>
-                            <p>son tarix : {item.deadline}</p>
-                            <Link to={`/details/${item.id}`}>{item.description}</Link>
-                        </div>
+                        }
+
+
+                      
                     </div>
                 </div>
             ))}
