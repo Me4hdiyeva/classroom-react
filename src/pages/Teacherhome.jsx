@@ -20,9 +20,6 @@ navigete ("classes")
         <p style={{ marginLeft: "380px", paddingTop: "20px" }}>To get started, add a course!</p>
         <button onClick={onClick} className='btn-creat' style={{ marginLeft: "420px" }}>Create Course</button>
 
-
-
-
       </div>
 
     </>

@@ -1,24 +1,46 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 
 const Classes = () => {
-  return (
-    <div>
-     <div style={{
-        paddingLeft:"400px", paddingTop:"50px"
-     }}>
-        <h1 className='font-bold' style={{paddingLeft:"350px", fontSize:"30px", paddingTop:"30px"}}>Create Course!</h1>
-        <input className='inp' type="text" id="website" name="website" placeholder="Course Name" required />
-        <input className='inp' type="text" id="website" name="website" placeholder="Topics" required />
+    const [classes, setClasses] = useState([]);
+    const [name, setName] = useState([]);
+    const [topics, setTopics] = useState([]);
+    const [major, setMajor] = useState([])
 
-        <input className='inp' type="text" id="website" name="website" placeholder="Major" required />
+    const handelSubmit= ((e)=>{
+        e.preventDefault()
+        axios 
+        .post("https://full-translucent-cut.glitch.me/classes",{
+            name : name,
+            major : major,
+            topics : topics
+        })
+        .then((response)=>{
+            console.log(response.data);
+        })
+        .catch((err)=>{
+            console.log(err);
+            
+        })
 
-        <button  className='btn-creat' style={{ marginLeft: "420px" }}>Create Course</button>
+    })
+
+    
 
 
-
-     </div>
-    </div>
-  )
+    return (
+        <div>
+            <form onSubmit={handelSubmit} style={{
+                paddingLeft: "400px", paddingTop: "50px"
+            }}>
+                <h1 className='font-bold' style={{ paddingLeft: "350px", fontSize: "30px", paddingTop: "30px" }}>Create Course!</h1>
+                <input className='name' value={name} onChange={(e) => setName(e.target.value)} type="text" id="name" name="name" placeholder="Course Name" required />
+                <input className='topics' value={topics} onChange={(e) => setTopics(e.target.value)} type="text" id="topics" name="topics" placeholder="Topics" required />
+                <input className='major' value={major} onChange={(e) => setMajor(e.target.value)} type="text" id="major" name="major " placeholder="Major" required />
+                <button type='submit' className='btn-creat' style={{ marginLeft: "420px" }}>Create Course</button>
+            </form>
+        </div>
+    )
 }
 
 export default Classes

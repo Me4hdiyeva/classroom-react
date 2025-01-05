@@ -20,7 +20,7 @@ const Student = () => {
         </li>
         <li>
           <Link  to="tasks">
-            <i className="icon">📋</i> Список заданий
+         <i className="icon">📚</i> Список заданий
           </Link>
         </li>
         <li>

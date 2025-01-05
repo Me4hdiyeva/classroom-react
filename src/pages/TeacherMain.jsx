@@ -16,14 +16,19 @@ const TeacherMain = () => {
               </Link>
             </li>
             <li>
+              <Link to="courses">
+                <i className="icon">🏠</i>Courses
+              </Link>
+            </li>
+            <li>
               {/* <Link to="schedule">
                 <i className="icon">🕒</i> Расписание
               </Link> */}
             </li>
             <li>
-              {/* <Link to="tasks">
-                <i className="icon">📋</i> Управление заданиями
-              </Link> */}
+              <Link to="tasks">
+        <i className="icon">📚</i> Управление заданиями
+              </Link>
             </li>
             <li>
               <a href="#">

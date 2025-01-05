@@ -16,6 +16,7 @@ import Tasks from "./pages/Tasks.jsx";
 import Teacherhome from "./pages/Teacherhome.jsx";
 import Details from "./pages/details.jsx";
 import Classes from "./pages/Classes.jsx";
+import Courses from "./pages/Courses.jsx";
 
 
 function App() {
@@ -36,6 +37,8 @@ function App() {
           {/* <Route index element={<TeacherMain />} /> */}
           <Route index element={<Teacherhome/>} />
           <Route path="classes" element={<  Classes />} />
+          <Route path="courses" element={<  Courses />} />
+
 
         </Route>
 
