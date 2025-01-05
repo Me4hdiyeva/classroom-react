@@ -22,6 +22,7 @@ import AddTasks from "./pages/AddTasks.jsx";
 import Data from "./pages/Data.jsx";
 import Settings from "./pages/Settings.jsx";
 import CalendarStudents from "./pages/CalendarStudents.jsx";
+import DetailsTask from "./pages/DetailsTask.jsx";
 
 
 function App() {
@@ -46,15 +47,15 @@ function App() {
           <Route path="tasks" element={< AddTasks/>} />
           <Route path="date" element={<Data/>} />
 
-
-
-
         </Route>
 
 
         <Route path="/student/:username" element={<StudentLayout />}>
           <Route index element={<Mainpages />} />
           <Route path="tasks/details/:id" element={<Details/>} />
+          <Route path="tasks/details/:classId/:taskId/detailstask/:id"  element={<DetailsTask/>} />
+
+
           <Route path="calendarstudents" element={<CalendarStudents />} />
           <Route path="tasks" element={<Tasks />} />
           <Route path="settings" element={<Settings />} />

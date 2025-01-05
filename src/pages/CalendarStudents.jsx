@@ -15,7 +15,7 @@ const CalendarStudents = () => {
         console.log(response.data);
 
         const formattedEvents = response.data.map(task => ({
-          title: task.name,
+          title: task.title,
           date: task.deadline, 
           id: task.classId, 
         }));

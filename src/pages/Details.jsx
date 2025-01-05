@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; 
+import { useParams, useNavigate, Link } from 'react-router-dom'; 
 
 const Details = () => {
   const [tasks, setTasks] = useState([]);  
@@ -54,9 +54,14 @@ const Details = () => {
         <div style={{ marginLeft: '300px', marginTop: '10px' }}>
           {tasks.map((task) => (
             <div style={{ paddingLeft: '30px', paddingTop: '30px' }} key={task.id}>
-              <h1 className="font-bold" style={{ fontSize: '20px' }}>
+            <Link to={`details/detailstask/${task.id}`}>
+              
+              
+              <h1 className="font-bold" style={{ fontSize: '20px', cursor:"pointer", }}>
+              The user {task.teacherId} added a task:
                 {task.title} - {task.description}
               </h1>
+              </Link>
               <p style={{ paddingTop: '20px', paddingBottom: '10px' }}>{task.createdAt}</p>
               <div style={{ display: 'flex', paddingRight: '20px' }}>
                 <p>Homework</p>
@@ -68,7 +73,7 @@ const Details = () => {
           ))}
         </div>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div style={{ marginLeft: '10px', width: '300px', height: '300px' }}>
+          {/* <div style={{ marginLeft: '10px', width: '300px', height: '300px' }}>
             <p style={{ textAlign: 'center', paddingTop: '40px' }}>My assignments</p>
             <form onSubmit={handleSubmit}>
               <input
@@ -103,7 +108,7 @@ const Details = () => {
                 Submit
               </button>
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

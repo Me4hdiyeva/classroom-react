@@ -398,3 +398,9 @@ margin-right: 30px;
 .submit-btn:hover {
   background-color: #9553A0;
 }
+
+
+.asg-task{
+  display: flex;
+  gap: 300px;
+}
