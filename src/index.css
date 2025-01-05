@@ -131,7 +131,13 @@
     border-color 0.3s ease,
     box-shadow 0.3s ease;
 }
+.topic-task, #description-task, .title-task:focus{
 
+  outline: none;
+  /* border-color: #4D167A; */
+  box-shadow: 0 0 10px rgba(77, 22, 122, 0.2);
+
+}
 input[type="datetime-local"] {
   /* width: 100%; */
   padding: 10px;
@@ -141,6 +147,11 @@ input[type="datetime-local"] {
   background-color: #f9f9f9;
   transition: border 0.3s, box-shadow 0.3s;
   box-sizing: border-box;
+}
+input[type="datetime-local"]:focus {
+  outline: none;
+  border-color: #4D167A;
+  box-shadow: 0 0 10px rgba(77, 22, 122, 0.2);
 }
 input[type="time"] {
   width: 150px; 
