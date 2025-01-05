@@ -8,13 +8,13 @@ const Tasks = () => {
     const[name , setName] = useState([]);
     useEffect(() => {
         axios
-            .get("https://full-translucent-cut.glitch.me/tasks")
+            .get("https://aquatic-supreme-saga.glitch.me/tasks")
             .then((response) => {
                 const data = response.data
                 console.log(data);
                 setTasks(data);
                 axios
-                    .get("https://full-translucent-cut.glitch.me/classes")
+                    .get("https://aquatic-supreme-saga.glitch.me/classes")
                     .then((response) => {
                         const classes = response.data
                         console.log(classes);

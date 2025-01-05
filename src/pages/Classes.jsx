@@ -10,7 +10,7 @@ const Classes = () => {
     const handelSubmit= ((e)=>{
         e.preventDefault()
         axios 
-        .post("https://full-translucent-cut.glitch.me/classes",{
+        .post("https://aquatic-supreme-saga.glitch.me/classes",{
             name : name,
             major : major,
             topics : topics

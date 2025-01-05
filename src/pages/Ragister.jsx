@@ -70,7 +70,7 @@ function Register() {
       console.log(values);
       
       try {
-        const response = await axios.post('https://full-translucent-cut.glitch.me/users', values);     
+        const response = await axios.post('https://aquatic-supreme-saga.glitch.me/users', values);     
         console.log('Success:', response.data);
         console.log("kecdi");
         Swal.fire({

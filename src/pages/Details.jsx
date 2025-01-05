@@ -6,7 +6,7 @@ const Details = () => {
     const[task,setTasks]= useState([]);
     useEffect(() => {
         axios
-            .get("https://full-translucent-cut.glitch.me/tasks")
+            .get("https://aquatic-supreme-saga.glitch.me/tasks")
             .then((response) => {
                 const tasks = response.data;
                 console.log(tasks);

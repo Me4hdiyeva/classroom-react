@@ -16,7 +16,7 @@ const Mainpages = () => {
     useEffect(() => {
         setFullnames(name); 
         axios
-            .get("https://full-translucent-cut.glitch.me/classes")
+            .get("https://aquatic-supreme-saga.glitch.me/classes")
             .then((response) => {
                 const nameclass = response.data;
                 console.log(nameclass);
@@ -24,9 +24,11 @@ const Mainpages = () => {
                     
           
                 axios
-                    .get("https://full-translucent-cut.glitch.me/tasks")
+                    .get("https://aquatic-supreme-saga.glitch.me/tasks")
                     .then((response) => {
                         const task = response.data;
+                        console.log(task);
+                        
                   
                         // const names = users.map(element => element.fullName.at(0));
                         // console.log("fullnames", names);
@@ -76,7 +78,7 @@ const Mainpages = () => {
                         {
                             task.map((index)=>(
                                 <div style={{ paddingBottom: "100px" }} className='p-5 text-[#4d167a]'>
-                                <p>son tarix : {index.deadline}</p>
+                                <p>son tarix : {index.deadline}s</p>
                                 <Link to="tasks">{index.description}</Link>
                             </div>
                             ))

@@ -14,9 +14,10 @@ import Calendar from "./pages/Calendar.jsx";
 import AllLayout from "./layout/AllLayout.jsx";
 import Tasks from "./pages/Tasks.jsx";
 import Teacherhome from "./pages/Teacherhome.jsx";
-import Details from "./pages/details.jsx";
+// import Details from "./pages/details.jsx";
 import Classes from "./pages/Classes.jsx";
 import Courses from "./pages/Courses.jsx";
+import Details from "./pages/Details.jsx";
 
 
 function App() {

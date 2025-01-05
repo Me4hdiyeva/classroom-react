@@ -11,7 +11,7 @@ const CalendarComponent = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('https://full-translucent-cut.glitch.me/tasks'); 
+        const response = await axios.get('https://aquatic-supreme-saga.glitch.me/tasks'); 
         console.log(response.data);
 
         const deadlines = response.data;

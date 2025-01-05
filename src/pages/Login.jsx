@@ -36,7 +36,7 @@ function Login() {
       console.log(values);
       
       axios
-      .get("https://full-translucent-cut.glitch.me/users")
+      .get("https://aquatic-supreme-saga.glitch.me/users")
       .then((response) => {
         const users = response.data;
         const { email, password } = values;
