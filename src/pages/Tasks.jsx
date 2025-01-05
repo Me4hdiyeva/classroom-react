@@ -13,23 +13,6 @@ const Tasks = () => {
                 const data = response.data
                 console.log(data);
                 setTasks(data);
-                axios
-                    .get("https://aquatic-supreme-saga.glitch.me/classes")
-                    .then((response) => {
-                        const classes = response.data
-                        console.log(classes);
-
-                        // console.log(clasdata);
-                        setName(classes)
-
-
-
-                    })
-                    .catch((err) => {
-                        console.log(err);
-
-                    })
-
 
             })
             .catch((err) => {
@@ -46,23 +29,6 @@ const Tasks = () => {
     }, [])
     return (
         <div>
-            {
-                name.map((index) => (
-                    <div style={{
-                        backgroundColor: "#563a70",
-                        borderRadius: "10px",
-                        padding: "50px",
-                        marginLeft: "280px",
-                        marginRight: "10px",
-                        color: "#ffffff",
-                        fontSize: "40px"
-                    }}>
-                        {index.name}
-                    </div>
-                ))
-            }
-
-
 
 
             {
@@ -80,16 +46,18 @@ const Tasks = () => {
                         >
                             <div>
 
-                                <h1 className='font-bold p-5 ' style={{ fontSize: "18px" }}>
-                                    <Link to={`/student/Mehdiyeva/tasks/details/t1`}> {item.title}</Link>
+                          
+                            <h1>{item.classId}</h1>
+                     
+                                <div style={{display:"flex", gap:"20px", paddingTop:"40px"}}>
 
-                                </h1>
-
-                                <p className='p-5'>{item.deadline}</p>
+                                <p>{item.title}</p>
+                                <p className=''>{item.deadline}</p>
+                                </div>
                             </div>
                             <div style={{
-                                paddingLeft: "660px",
-                                paddingTop: "30px",
+                                paddingLeft: "780px",
+                                paddingTop: "10px",
                                 fontSize: "40px",
 
 

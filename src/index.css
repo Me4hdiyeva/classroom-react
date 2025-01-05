@@ -73,8 +73,25 @@
   border-color: #bb00ff;
 
 }
-
-
+.inp-detail{
+  width: 90%;
+  padding: 10px 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.inp-detail:focus{
+  border-color: #bb00ff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
 .inp:focus {
   border-color: #bb00ff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);

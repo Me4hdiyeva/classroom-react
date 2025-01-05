@@ -55,11 +55,7 @@ const Student = () => {
             <li></li>
         )}
     </ul>
-        <li>
-          <a href="#">
-            <i className="icon">📂</i> Архив курсов
-          </a>
-        </li>
+      
         <li>
           <a href="#">
             <i className="icon">⚙️</i> Настройки
