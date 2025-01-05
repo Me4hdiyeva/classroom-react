@@ -1,8 +1,26 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
  
 const Student = () => {
   const {username} = useParams();
+  const [classes , setClasses] = useState();
+  useEffect(()=>{
+    axios
+    .get("https://aquatic-supreme-saga.glitch.me/classes")
+    .then((response) => {
+        const data = response.data
+        console.log("data", data);
+        setClasses(data);
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+
+  },[])
+
+
+
     return (
         <>
             <div className="flex main">
@@ -23,11 +41,20 @@ const Student = () => {
          <i className="icon">📚</i> Список заданий
           </Link>
         </li>
-        <li>
-          <a href="#">
-            <i className="icon">🔵</i> AzMP102
-          </a>
-        </li>
+        <ul>
+        {classes && classes.length > 0 ? (
+            classes.map((item) => (
+                <li key={item.id}>
+                    <Link to={ `/student/Mehdiyeva/tasks/details/${item.name}`}>
+                        <i className="icon">🔵</i> 
+                        {item.name}
+                    </Link>
+                </li>
+            ))
+        ) : (
+            <li></li>
+        )}
+    </ul>
         <li>
           <a href="#">
             <i className="icon">📂</i> Архив курсов
@@ -41,7 +68,7 @@ const Student = () => {
       </ul>
     </aside>
 
-                {/* Main Content */}
+            
                 <div className="flex-1 p-4 ml-64">
 
                 </div>
