@@ -20,6 +20,7 @@ import Courses from "./pages/Courses.jsx";
 import Details from "./pages/Details.jsx";
 import AddTasks from "./pages/AddTasks.jsx";
 import Data from "./pages/Data.jsx";
+import Settings from "./pages/Settings.jsx";
 
 
 function App() {
@@ -55,6 +56,8 @@ function App() {
           <Route path="tasks/details/:id" element={<Details/>} />
           <Route path="calendar" element={<Calendar />} />
           <Route path="tasks" element={<Tasks />} />
+          <Route path="settings" element={<Settings />} />
+
 
 
           {/* <Route  path="/student" element={<Student />} /> */}

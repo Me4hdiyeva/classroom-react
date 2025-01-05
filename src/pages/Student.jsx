@@ -57,7 +57,7 @@ const Student = () => {
     </ul>
       
         <li>
-          <a href="#">
+          <a href="settings">
             <i className="icon">⚙️</i> Настройки
           </a>
         </li>
