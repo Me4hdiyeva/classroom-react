@@ -96,6 +96,9 @@ const Settings = () => {
                     </button>
                 </form>
             </div>
+                <button type="submit" className="submit-btn">
+                        Save Changes
+                    </button>
 
 
 
