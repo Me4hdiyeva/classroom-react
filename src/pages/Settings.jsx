@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import logo from "../assets/img/Mathematicsamico.png";
+import Swal from 'sweetalert2';
 
 
 const Settings = () => {
@@ -14,6 +15,8 @@ const Settings = () => {
         socialLinks: '',
         email: '',
     });
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         axios
@@ -39,7 +42,12 @@ const Settings = () => {
         axios
             .put(`https://aquatic-supreme-saga.glitch.me/users/${userData.id}`, userData)
             .then(() => {
-                alert('Data updated successfully!');
+                Swal.fire({
+                    title: "Data updated successfully!",
+                    icon: "success",
+                    draggable: true
+                  });
+                // alert('Data updated successfully!');
             })
             .catch((error) => {
                 console.error('Error updating data:', error.message);
@@ -54,9 +62,29 @@ const Settings = () => {
         }));
     };
 
+    const handleDelete = () => {
+        const confirmation = window.confirm("Are you sure you want to delete your account?");
+        if (confirmation) {
+            axios
+                .delete(`https://aquatic-supreme-saga.glitch.me/users/${userData.id}`)
+                .then(() => {
+                  
+                    Swal.fire({
+                        title: "Your account has been deleted.",
+                        icon: "success",
+                        draggable: true
+                      });
+              
+                    navigate("/")
+                })
+                .catch((error) => {
+                    console.error('Error deleting account:', error.message);
+                });
+        }
+    };
+
     return (
         <div style={{ padding: '40px 0 0 350px' }}>
-
             <h1 style={{ fontSize: '40px', paddingLeft: '400px' }} className="text-[#4D167A] font-bold">
                 Settings
             </h1>
@@ -96,15 +124,10 @@ const Settings = () => {
                     </button>
                 </form>
             </div>
-                <button style={{marginLeft:"700px", marginTop:"-20px", }} type="submit" className="submit-btn">
-                        Save Changes
-                    </button>
-
-
-
-
-
-
+            <button style={{ marginLeft: "00px" }} onClick={handleDelete} className="submit-btn">
+                Delete Account
+           
+            </button>
         </div>
     );
 };
