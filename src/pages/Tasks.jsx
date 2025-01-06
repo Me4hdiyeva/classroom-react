@@ -6,6 +6,7 @@ const Tasks = () => {
 
     const [task, setTasks] = useState([]);
     const [name, setName] = useState([]);
+
     useEffect(() => {
         axios
             .get("https://aquatic-supreme-saga.glitch.me/tasks")
@@ -34,7 +35,7 @@ const Tasks = () => {
             {
                 task.map((item) => (
 
-                    <div key={item.id} style={{ marginLeft: "280px", paddingTop: "60px", marginRight: "180px" }}>
+                    <div key={item.id} style={{ marginLeft: "280px", paddingTop: "60px", marginRight: "180px", color:"#4D167A"}}>
                         <div
                             style={{
                                 backgroundColor: "#e1c2ff",
@@ -47,22 +48,19 @@ const Tasks = () => {
                             <div>
 
                           
-                            <h1>{item.classId}</h1>
+                            <h1 style={{fontSize:"40px"}}>{item.classId}</h1>
                      
                                 <div style={{display:"flex", gap:"20px", paddingTop:"40px"}}>
 
-                                <p>{item.title}</p>
-                                <p className=''>{item.deadline}</p>
+                                <h1 className=''>{new Date(item.deadline).toLocaleString()}</h1>
+                                <p className='font-bold'>{item.title}</p>
+                               
                                 </div>
                             </div>
                             <div style={{
                                 paddingLeft: "780px",
                                 paddingTop: "10px",
                                 fontSize: "40px",
-
-
-
-
                             }}>
                                 <i className="icon">📋</i>
                             </div>

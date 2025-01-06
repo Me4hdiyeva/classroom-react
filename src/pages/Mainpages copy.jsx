@@ -58,7 +58,7 @@ const Mainpages = () => {
                         </div>
                     </div>
 
-                    {/* Son tarix ve tapşırıq haqqında məlumat */}
+                 
                     <div style={{ paddingBottom: "100px" }} className="p-5 text-[#4d167a]">
                         <p>Son tarix: {item.deadline}</p>
                         <Link    to={`/student/Mehdiyeva/tasks/details/${item.classId}`}>{item.description}</Link>

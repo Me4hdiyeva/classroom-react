@@ -59,7 +59,7 @@ function App() {
         <Route path="/student/:username" element={<StudentLayout />}>
           <Route index element={<Mainpages />} />
           <Route path="tasks/details/:id" element={<Details/>} />
-          <Route path="tasks/details/:classId/:taskId/detailstask/:id"  element={<DetailsTask/>} />
+          <Route path="tasks/details/:id/detailstask/:taskId" element={<DetailsTask />} />
 
 
           <Route path="calendarstudents" element={<CalendarStudents />} />

@@ -41,6 +41,11 @@ const TeacherMain = () => {
                 <i className="icon">⚙️</i>  Settings
               </a>
             </li>
+            <li>
+              <a href="/">
+              <i className="icon">🚪</i> Log out
+              </a>
+            </li>
           </ul>
         </aside>
 {/* 

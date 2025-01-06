@@ -7,6 +7,8 @@ const DetailsTask = () => {
   const [url, setUrl] = useState("");  
   const [comment, setComment] = useState("");  
   const { id, username } = useParams();
+  
+  
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -41,7 +43,7 @@ const DetailsTask = () => {
         console.log(tasks);
 
        
-        const foundTask = tasks.find((task) => String(task.id) === String(id));
+        const foundTask = tasks.find((task) => String(task.classId) === String(id));
         console.log("Found Task:", foundTask);
 
         if (foundTask) {

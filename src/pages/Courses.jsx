@@ -24,9 +24,11 @@ const Courses = () => {
                 console.log( response.data);
                 setCourses(courses.filter(course => course.id !== id));
                 Swal.fire({
-                    title: "Are you sure you want to delete this?",
-                    icon: "question"
+                    title: "Delete!",
+                    icon: "success",
+                    draggable: true
                   });
+           
             })
             .catch((err) => {
                 console.log(err);

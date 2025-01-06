@@ -1,21 +1,21 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom'; 
+import { useParams, useNavigate, Link } from 'react-router-dom';
 
 const Details = () => {
-  const [tasks, setTasks] = useState([]);  
-  const [url, setUrl] = useState(""); 
-  const [comment, setComment] = useState(""); 
-  const { id, username } = useParams(); 
-  const navigate = useNavigate(); 
+  const [tasks, setTasks] = useState([]);
+  const [url, setUrl] = useState("");
+  const [comment, setComment] = useState("");
+  const { id, username } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    
+
     axios
       .get('https://aquatic-supreme-saga.glitch.me/tasks')
       .then((response) => {
         const allTasks = response.data;
-     
+
         const filteredTasks = allTasks.filter((task) => String(task.classId) === String(id));
         setTasks(filteredTasks);
       })
@@ -25,16 +25,16 @@ const Details = () => {
   }, [id]);
 
   const handleSubmit = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
-  
+
     const newAssignment = {
       taskId: id,
       studentId: username,
       url: url,
       feedback: comment,
       assignDate: new Date().toISOString(),
-      status: "submitted", 
+      status: "submitted",
     };
 
     axios
@@ -54,13 +54,10 @@ const Details = () => {
         <div style={{ marginLeft: '300px', marginTop: '10px' }}>
           {tasks.map((task) => (
             <div style={{ paddingLeft: '30px', paddingTop: '30px' }} key={task.id}>
-            <Link to={`details/detailstask/${task.id}`}>
-              
-              
-              <h1 className="font-bold" style={{ fontSize: '20px', cursor:"pointer", }}>
-              The user {task.teacherId} added a task:
-                {task.title} - {task.description}
-              </h1>
+              <Link to={`detailstask/${task.id}`}>
+                <h1 className="font-bold" style={{ fontSize: '20px', cursor: "pointer" }}>
+                  The user {task.teacherId} added a task: {task.title} - {task.description}
+                </h1>
               </Link>
               <p style={{ paddingTop: '20px', paddingBottom: '10px' }}>{task.createdAt}</p>
               <div style={{ display: 'flex', paddingRight: '20px' }}>
