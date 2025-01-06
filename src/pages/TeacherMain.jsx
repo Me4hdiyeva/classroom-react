@@ -12,37 +12,33 @@ const TeacherMain = () => {
           <ul>
             <li>
               <Link to={`/teachers/${username}`} className="active">
-                <i className="icon">🏠</i> Главная страница
+                <i className="icon">🏠</i>Home Page
               </Link>
             </li>
             <li>
               <Link to="courses">
-                <i className="icon">🏠</i>Courses
+              <i className="icon">🎓</i>Courses
               </Link>
             </li>
             <li>
               <Link to="date">
-                <i className="icon">🕒</i> Расписание
+                <i className="icon">🕒</i> Schedule
               </Link>
             </li>
             <li>
               <Link to="tasks">
-        <i className="icon">📚</i> Управление заданиями
+        <i className="icon">📚</i> Task Management
               </Link>
             </li>
             <li>
-              <a href="#">
-                <i className="icon">👩‍🎓</i> Студенты
+              <a href="studentsteach">
+                <i className="icon">👩‍🎓</i> Students
               </a>
             </li>
+         
             <li>
-              <a href="#">
-                <i className="icon">📂</i> Архив курсов
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="icon">⚙️</i> Настройки
+              <a href="settings">
+                <i className="icon">⚙️</i>  Settings
               </a>
             </li>
           </ul>

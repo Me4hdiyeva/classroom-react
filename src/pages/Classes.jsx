@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Classes = () => {
     const [name, setName] = useState('');
@@ -10,6 +11,7 @@ const Classes = () => {
     const [selectedDays, setSelectedDays] = useState([]);
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
+    const [students, setStudents] = useState(''); 
 
     const { username } = useParams();
 
@@ -37,6 +39,10 @@ const Classes = () => {
         }
     };
 
+    const handleStudentChange = (e) => {
+        setStudents(e.target.value); 
+    };
+
     const handelSubmit = (e) => {
         e.preventDefault();
         axios
@@ -45,11 +51,16 @@ const Classes = () => {
                 major,
                 topics: topics.split(','),
                 teacherId: username,
-                studentIds: [],
+                studentIds: students.split(','), 
                 schedule
             })
             .then((response) => {
                 console.log('Class Created:', response.data);
+                Swal.fire({
+                    title: "Class Created!",
+                    icon: "success",
+                    draggable: true
+                  });
             })
             .catch((err) => {
                 console.error('Error:', err);
@@ -105,48 +116,52 @@ const Classes = () => {
                         </label>
                     ))}
                 </div>
+                
                 <div className="schedule-container">
-    <h4>Add Schedule</h4>
-    <div style={{display:"flex"}}>
-    <div>
+                    <h4>Add Schedule</h4>
+                    <div style={{ display: "flex" }}>
+                        <div>
+                            <label>Start Time</label>
+                            <input
+                                type='time'
+                                value={startTime}
+                                onChange={(e) => setStartTime(e.target.value)}
+                            />
+                            <label>End Time</label>
+                            <input
+                                type='time'
+                                value={endTime}
+                                onChange={(e) => setEndTime(e.target.value)}
+                            />
+                        </div>
 
-    <label>Start Time</label>
-    <input
-        type='time'
-        value={startTime}
-        onChange={(e) => setStartTime(e.target.value)}
-    />
-    <label>End Time</label>
-    <input
-        type='time'
-        value={endTime}
-        onChange={(e) => setEndTime(e.target.value)}
-    />
-    </div>
+                        <ul className="schedule-list">
+                            {schedule.map((item, index) => (
+                                <li key={index}>
+                                    {`${item.day}: ${item.time}`}
+                                </li>
+                            ))}
+                        </ul>
+                        <button
+                            type='button'
+                            onClick={addSchedule}
+                            className="add-button"
+                        >
+                            Add
+                        </button>
+                    </div>
+                </div>
 
-<div >
-
-
-
-
-<ul className="schedule-list">
-    {schedule.map((item, index) => (
-        <li key={index}>
-            {`${item.day}: ${item.time}`}
-        </li>
-    ))}
-</ul>
-</div>
-<button
-    type='button'
-    onClick={addSchedule}
-    className="add-button"
->
-    Add
-</button>
-    </div>
-</div>
-
+           
+                <input
+                    className='add-students'
+                    value={students}
+                    onChange={handleStudentChange}
+                    type="text"
+                    id="students"
+                    name="students"
+                    placeholder="Add Students "
+                />
 
                 <button type='submit' className='btn-creat' style={{ marginLeft: "420px", marginTop: '20px' }}>
                     Create Course

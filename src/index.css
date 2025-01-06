@@ -44,7 +44,7 @@
   margin-right: 10px;
   font-size: 18px;
 }
-.name,.topics,.major {
+.name,.topics,.major, .add-students {
   width: 90%;
   padding: 10px 15px;
   margin-top: 20px;
@@ -403,4 +403,31 @@ margin-right: 30px;
 .asg-task{
   display: flex;
   gap: 300px;
+}
+
+.circle-container {
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* height: 300px; */
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  margin-top: -30px;  
+
+  border-radius: 50%;
+  background: conic-gradient(#4d167a 0% 0%, #ddd 0% 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#average-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4d167a;
 }
