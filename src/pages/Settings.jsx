@@ -96,7 +96,7 @@ const Settings = () => {
                     </button>
                 </form>
             </div>
-                <button type="submit" className="submit-btn">
+                <button style={{marginLeft:"700px", marginTop:"-20px", }} type="submit" className="submit-btn">
                         Save Changes
                     </button>
 
