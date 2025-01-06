@@ -61,7 +61,7 @@ const DetailsTask = () => {
         <div className='asg-task'>
             <div>
 
-            <div style={{ padding: '20px', borderRadius: '8px', maxWidth: '800px', margin: '0 auto' }}>
+       <div style={{ padding: '20px', borderRadius: '8px', maxWidth: '800px', margin: '0 auto' }}>
   <h1 style={{ fontSize: '40px', fontWeight: 'bold', color: '#4D167A' }}>
     {task.description} - {task.topic}
   </h1>

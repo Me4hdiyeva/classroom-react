@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const AddTasks = () => {
     const [title, setTitle] = useState('');
@@ -7,10 +9,11 @@ const AddTasks = () => {
     const [topic, setTopic] = useState('');
     const [deadline, setDeadline] = useState('');
     const [group, setGroup] = useState('');
+    const [pointsLimit, setPointsLimit] = useState('');
     const [classes, setClasses] = useState([]);
     const currentDate = new Date();
+    const { username } = useParams();
 
-  
     useEffect(() => {
         axios
             .get('https://aquatic-supreme-saga.glitch.me/classes')
@@ -24,7 +27,6 @@ const AddTasks = () => {
             .catch((err) => console.log(err));
     }, []);
 
-  
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
@@ -35,12 +37,18 @@ const AddTasks = () => {
                 topic: topic,
                 deadline: deadline,
                 createdAt: currentDate,
-                teacherId: '', 
+                teacherId: username, 
                 assignments: [],
                 completionRate: 0, 
+                completionRate: pointsLimit, 
             })
             .then((response) => {
                 console.log(response.data);
+                Swal.fire({
+                  title: "Task assigned",
+                  icon: "success",
+                  draggable: true
+                });
             })
             .catch((err) => {
                 console.log(err);
@@ -70,7 +78,7 @@ const AddTasks = () => {
                     placeholder="Tasks title"
                     required
                 />
-             
+              
                 <input
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
@@ -93,8 +101,7 @@ const AddTasks = () => {
                     required
                 />
           
-
-          <select
+                <select
                     value={group}
                     onChange={(e) => setGroup(e.target.value)}
                     className="group-select"
@@ -115,9 +122,32 @@ const AddTasks = () => {
                     name="deadline"
                     required
                 />
+                
+              
+                <input
+                    value={pointsLimit}
+                    onChange={(e) => setPointsLimit(e.target.value)}
+                    className="points-limit"
+                    type="number"
+                    id="points-limit"
+                    name="pointsLimit"
+                    placeholder="Points Limit"
+                    required
+                    style={{
+                        marginBottom: '20px',
+                        padding: '10px',
+                        fontSize: '16px',
+                        border: '2px solid #4D167A',
+                        borderRadius: '8px',
+                        width: '300px',
+                        marginLeft: '10px',
+                        color: '#4D167A',
+                    }}
+                />
              
-                <button type='submit' className='btn-creat' style={{ marginLeft: "420px" }}>Create Task</button>
-
+                <button type='submit' className='btn-creat' style={{ marginLeft: "420px", padding: '10px 20px', backgroundColor: '#4D167A', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+                    Create Task
+                </button>
             </form>
         </div>
     );
