@@ -407,9 +407,7 @@ margin-right: 30px;
 
 .circle-container {
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* height: 300px; */
+ 
 }
 
 .circle {
